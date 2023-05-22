@@ -10,41 +10,14 @@ import {
 import { Text } from "@/styles/Text";
 import { useEffect, useState } from "react";
 import { FaGithub, FaShare } from "react-icons/fa";
-import { userData } from "@/utils/userData";
-
-interface ReposType {
-  id: number;
-  name: string;
-  language: string;
-  description: string;
-  html_url: string;
-  homepage: string;
-}
+import { projectsData } from "@/utils/projectsData";
 
 export const Project = (): JSX.Element => {
-  const [repositories, setRepositories] = useState<ReposType[]>([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await fetch(
-        `https://api.github.com/users/${userData.githubUser}/repos?sort=created&direction=desc`
-      );
-
-      const json = await data.json();
-
-      setRepositories(json);
-
-      return json;
-    };
-
-    fetchData();
-  }, []);
-
   return (
     <>
-      {repositories &&
-        repositories?.map?.((repository) => (
-          <ProjectWrapper key={repository.id}>
+      {projectsData &&
+        projectsData?.map?.((repository, index) => (
+          <ProjectWrapper key={index}>
             <ProjectTitle
               as="h2"
               type="heading3"
@@ -74,7 +47,7 @@ export const Project = (): JSX.Element => {
             </ProjectStack>
 
             <Text type="body1" color="grey2">
-              {repository.description?.substring(0, 129)}
+              {`${repository.description?.substring(0, 200)}${repository.description?.length > 200 ? "..." : ""}`}
             </Text>
             <ProjectLinks>
               <ProjectLink target="_blank" href={repository.html_url}>
