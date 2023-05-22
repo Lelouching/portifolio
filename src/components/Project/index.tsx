@@ -34,8 +34,6 @@ export const Project = (): JSX.Element => {
 
       setRepositories(json);
 
-      console.log(json)
-
       return json;
     };
 
