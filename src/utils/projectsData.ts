@@ -47,7 +47,8 @@ export const projectsData: ReposType[] = [
     {
         name: "BandKamp Back-End",
         language: "Python",
-        description: `No BandKamp você pode cadastrar, obter, atualizar e deletar um usuário, também poderá criar e listar albums e adicionar músicas à eles.`,
+        description: `No BandKamp você pode cadastrar, obter, atualizar e deletar um usuário, também poderá criar e listar albums e 
+        adicionar músicas à eles. Feito com Django.`,
         technologies: "Django, GenericViews e PostgreSql",
         html_url: "https://github.com/Lelouching/m5-bandkamp-generic-view-Lelouching",
         homepage: null

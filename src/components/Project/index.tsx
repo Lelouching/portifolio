@@ -47,7 +47,7 @@ export const Project = (): JSX.Element => {
             </ProjectStack>
 
             <Text type="body1" color="grey2">
-              {`${repository.description?.substring(0, 200)}${repository.description?.length > 200 ? "..." : ""}`}
+              {`${repository.description.substring(0, 200)}${repository.description?.length > 200 ? "..." : ""}`}
             </Text>
             <ProjectLinks>
               <ProjectLink target="_blank" href={repository.html_url}>
